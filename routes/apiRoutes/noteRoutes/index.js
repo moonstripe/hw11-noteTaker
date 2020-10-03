@@ -10,7 +10,7 @@ router.route('/')
     .get(noteController.getNotes)
     .post(noteController.postNotes);
 
-router.route('/:id')
+router.route('/id')
     .delete(noteController.deletePostById);
 
 

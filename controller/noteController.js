@@ -1,7 +1,4 @@
-const Note = require('../model/note');
-const db = require('../db/db.json');
 const fs = require('fs');
-const url = require('url');
 
 module.exports = {
     getNotes: async (_req, res) => {
@@ -13,7 +10,6 @@ module.exports = {
     postNotes: async (req, res) => {
         const userInput = req.body;
         let existingNotes = [];
-        const note =
 
             await res.json(fs.readFile('./db/db.json', 'utf-8', (err, data) => {
                 if (err) throw err;
@@ -46,19 +42,21 @@ module.exports = {
 
     deletePostById: async (req, res) => {
         const id = res.req.params['id'];
-        let existingNotes = [];
 
-        console.log(id);
+        console.log(res);
 
-        await fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+        console.log('deleted '+id);
+
+        await fs.readFile('./db/db.json', 'utf-8', async (err, data) => {
             if (err) throw err;
-            existingNotes = JSON.parse(data);
-            const file = JSON.parse(data);
 
+            const file = JSON.parse(data);
 
             const matches = file.filter(note => note.id !== parseInt(id));
 
-            fs.writeFile('./db/db.json', JSON.stringify(matches), (err) => {
+            console.log(matches);
+
+            await fs.writeFile('./db/db.json', JSON.stringify(matches), (err) => {
                 if (err) throw (err);
             });
 

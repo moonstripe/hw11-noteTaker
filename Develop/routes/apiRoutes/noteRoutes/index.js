@@ -1,4 +1,5 @@
 const noteController = require('../../../controller/noteController');
+const app = require('../../../server');
 const router = require('express')
     .Router();
 
@@ -6,8 +7,13 @@ const router = require('express')
 
 // route to get/post noteRoutes
 router.route('/')
-    .get(noteController.getNotes);
-    // .post(noteController.postNotes);
+    .get(noteController.getNotes)
+    .post(noteController.postNotes);
+
+router.route('/:id')
+    .delete(noteController.deletePostById);
+
+
 
 // router.route('/')
 //     .get(async (_req, res) => {

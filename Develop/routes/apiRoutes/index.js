@@ -5,4 +5,5 @@ const userRoutes = require('./noteRoutes');
 // _ denotes parameter unused.
 router.use('/notes', userRoutes);
 
+
 module.exports = router;

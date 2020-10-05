@@ -59,8 +59,6 @@ const handleNoteSave = function () {
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
-    // page reload
-    location.reload();
   });
 };
 
@@ -78,8 +76,7 @@ const handleNoteDelete = function (event) {
   deleteNote(note.id).then(() => {
     getAndRenderNotes();
     renderActiveNote();
-    // page reload
-    location.reload();
+
   });
 
 };

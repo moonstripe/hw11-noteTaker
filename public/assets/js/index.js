@@ -141,8 +141,8 @@ const renderNoteList = (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => {
-  return getNotes().then(renderNoteList);
+const getAndRenderNotes = async () => {
+  return await getNotes().then(renderNoteList);
 };
 
 $saveNoteBtn.on("click", handleNoteSave);
